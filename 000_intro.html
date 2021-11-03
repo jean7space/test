@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Welcome, Hitchhiker</title>
+        <link rel="stylesheet" type = "text/css" href="style_font.css"/>
+
+        <style type = "text/css">
+
+            a {color:#DDC9E5; text-decoration-line: none;}
+            a:hover {color:white;}
+            #body00 {background-color:#0B0B51;}
+            #logo00 {color:white; text-align:center; font-size: 25px; vertical-align:center; font-family:'Zen Dots'; position:absolute; top:40%;left:40%; transition:left 4s;}
+            #logo00:hover {color:#DDC9E5;}
+            #menu {color:#DDC9E5; text-align: left; font-size:15px; vertical-align: middle; font-family:'Zen Dots'; position:absolute; top:388px; left:60px; visibility: hidden;}
+            .menu01:hover {color:white; font-family:'Press Start 2P';}
+            #Copyright {color:#DDC9E5; text-align: left; font-size: 11px; font-family:'Noto Sans'; position:absolute; top:95%; left:3%;}
+
+        </style>
+
+    </head>
+    <body id = "body00">
+        <canvas id="myCanvas" width="1400" height="880"></canvas>
+
+        <script type= "text/javascript">
+            // main에서 로고 변화
+            function changeView(){
+                var dom = document.getElementById("menu");
+                if(dom.style.visibility == "visible"){
+                    dom.style.visibility = "hidden";
+                    document.getElementById("logo00").innerHTML = "For<br>Your Perfect<br>Space Travel";
+                    document.getElementById("logo00").style.left = "40%";
+                    var canvas = document.getElementById("myCanvas");
+                    var myContext = canvas.getContext("2d");
+                    myContext.clearRect(0,0,canvas.width,canvas.height);
+                }
+                else{
+                    dom.style.visibility = "visible";
+                    document.getElementById("logo00").innerHTML = "The Hitchhiker's<br>Guide to<br>the Galaxy";
+                    document.getElementById("logo00").style.left = "83%";
+                    var canvas = document.getElementById("myCanvas");
+                    var myContext = canvas.getContext("2d");
+                    myContext.clearRect(0,0,canvas.width,canvas.height);
+                    // nav menu 파트
+                    myContext.beginPath();
+                    myContext.moveTo(170,370);
+                    myContext.lineTo(170,50);
+                    myContext.lineTo(20,50);
+                    myContext.lineTo(20,850);
+                    myContext.lineTo(170,850);
+                    myContext.lineTo(170,535);
+                    myContext.lineWidth = 2;
+                    myContext.strokeStyle = "#DDC9E5";
+                    myContext.lineJoin = "round";
+                    myContext.lineCap = "round";
+                    myContext.stroke();
+                }
+            }
+
+        </script>
+        <header>
+            <p id = "logo00" onmousedown="changeView();">For<br>Your Perfect<br>Space Travel</p>
+        </header>
+        <nav id = "menu">
+            <p class = "menu01" ><a href="001.html">Space History</a></p>
+            <p class = "menu01" ><a href="002.html">Guide History</a></p>
+            <p class = "menu01" ><a href="003.html">Code of Conduct</a></p>
+            <p class = "menu01" ><a href="004.html">Words to Goodbye</a></p>
+        </nav>
+        <footer>
+            <p id = "Copyright">Copyright 2021. Jean. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
